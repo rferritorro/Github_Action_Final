@@ -1,0 +1,16 @@
+name: github_action_final
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+jobs:
+  linter:
+    name: Run linters
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: github/super-linter@v3
+      env:
+        JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
+	      VALIDATE_JAVASCRIPT_ES: true
